@@ -16,35 +16,6 @@ class MusicSearch extends Component {
       <div>
         <Paper>
           <div style={{textAlign: 'center'}}>
-
-          state = {
-            value: null,
-            isValid: false
-          }
-
-          checkIsValid(number) {
-            if (!numebr || number === '') {
-              return false;
-            } else {
-              if (isNaN(parseFloat(number))) {
-                return false;
-              }
-            }
-            return true;
-          }
-
-          <input 
-            value={this.state.value}
-            onChange={(e) => {
-              this.setState({
-                'value': e.target.value,
-                'isValid': checkIsValid(e.target.value)
-              });
-              }
-            }
-            onBlur={setNumber(this.state)}
-          />
-
             <TextField
               autoFocus
               hintText={<SearchIcon color={grey400} />}
