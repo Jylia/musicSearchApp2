@@ -1,2 +1,4 @@
-export const getData = 'GET_DATA';
-export const setIsLoading = 'SET_IS_LOADING';
+export const GET_DATA = 'GET_DATA';
+export const SET_IS_LOADING = 'SET_IS_LOADING';
+export const SET_TEXT = 'SET_TEXT';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH'

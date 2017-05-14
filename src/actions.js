@@ -1,31 +1,40 @@
-import { getData, setIsLoading } from './constants';
+import { GET_DATA, SET_IS_LOADING, SET_TEXT, CLEAR_SEARCH } from './constants';
 import { iTunesSearch, spotifySearch } from './services/searchService';
 
-export function isLoading(value) {
+export function fetchSearch(searchQuery) {
   return (dispatch) => {
-    dispatch({
-      type: setIsLoading,
+    dispatch({ 
+      type: SET_IS_LOADING,
       payload: {
-        isLoading: value
+        isLoading: true
       }
     });
-  }
-}
-
-export function fetchSearch(searchQuery, isLoading) {
-  return (dispatch) => {
     Promise.all([iTunesSearch(searchQuery), spotifySearch(searchQuery)])
       .then((values) => {
         dispatch({
-          type: getData,
+          type: GET_DATA,
           payload: {
-            entities: values[0].concat(values[1]),
-            isLoading: false
+            entities: values[0].concat(values[1])
           }
         })
       })
       .catch(reason => { 
         console.log(reason)
       });
+  }
+}
+
+export function setSearchText(text) {
+  return {
+    type: SET_TEXT,
+    payload: {
+      text: text
+    }
+  };
+}
+
+export function clearSearch() {
+  return {
+    type: CLEAR_SEARCH
   }
 }

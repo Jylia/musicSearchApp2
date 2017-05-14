@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import musicSearchReducer from './reducers/musicSearchReducer';
+import mainReducer from './reducers/mainReducer';
 import thunk from 'redux-thunk';
 
 export default function configureStore(initialState = {}) {
@@ -13,7 +13,7 @@ export default function configureStore(initialState = {}) {
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
 
   const store = createStore(
-    musicSearchReducer,
+    mainReducer,
     composeEnhancers(...enhancers)
   );
 

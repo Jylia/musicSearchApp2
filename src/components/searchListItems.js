@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Avatar from 'material-ui/Avatar';
-import iTunesLogo from '../images/iTunesLogo.png';
-import spotifyLogo from '../images/spotifyLogo.png';
 import {List} from 'material-ui/List';
 import SearchListItem from './searchListItem';
 
