@@ -1,5 +1,5 @@
 {
-  "name": "iTunes",
+  "name": "iTunes2",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -28,5 +28,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://jylia.github.io/musicSearchApp"
+  "homepage": "http://jylia.github.io/musicSearchApp2"
 }
