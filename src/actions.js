@@ -1,7 +1,7 @@
-import { GET_DATA, SET_IS_LOADING, SET_TEXT, CLEAR_SEARCH } from './constants';
+import { GET_DATA, SET_IS_LOADING, SET_TEXT, CLEAR_SEARCH, SET_RESOURCE_TYPES } from './constants';
 import { iTunesSearch, spotifySearch } from './services/searchService';
 
-export function fetchSearch(searchQuery) {
+export function fetchSearch(searchQuery, searchParams) {
   return (dispatch) => {
     dispatch({ 
       type: SET_IS_LOADING,
@@ -9,7 +9,7 @@ export function fetchSearch(searchQuery) {
         isLoading: true
       }
     });
-    Promise.all([iTunesSearch(searchQuery), spotifySearch(searchQuery)])
+    Promise.all([iTunesSearch(searchQuery, searchParams), spotifySearch(searchQuery, searchParams)])
       .then((values) => {
         dispatch({
           type: GET_DATA,
@@ -31,6 +31,18 @@ export function setSearchText(text) {
       text: text
     }
   };
+}
+
+export function setResourceType(resource) {
+  return {
+    type: SET_RESOURCE_TYPES,
+    payload: {
+      resourceType: {
+        name: resource.name,
+        isActive: resource.isActive
+      }
+    }
+  }
 }
 
 export function clearSearch() {

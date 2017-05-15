@@ -4,9 +4,9 @@ function parseJSON(response) {
   return response.json();
 }
 
-export function iTunesSearch(searchQuery) {
+export function iTunesSearch(searchQuery, searchParams) {
   let returnArray = [];
-  if (!!searchQuery) {
+  if (!!searchQuery && searchParams.iTunes) {
     let searchUrl = `https://itunes.apple.com/search?term=${searchQuery}&entity=album&attribute=allArtistTerm&limit=50`;
     return fetchJsonp(searchUrl)
       .then(parseJSON)
@@ -33,9 +33,9 @@ export function iTunesSearch(searchQuery) {
   }
 }
 
-export function spotifySearch(searchQuery) {
+export function spotifySearch(searchQuery, searchParams) {
   let returnArray = [];
-  if (!!searchQuery) {
+  if (!!searchQuery && searchParams.spotify) {
     let searchUrl = `https://api.spotify.com/v1/search?q=artist:${searchQuery}&type=album&limit=50`
     return fetch(searchUrl)
       .then(parseJSON)
